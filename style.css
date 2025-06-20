@@ -350,7 +350,7 @@ nav.active {
   .nav__list {
     display: flex;
     color: var(--White);
-    margin-inline-start: auto;
+    margin-inline-end: auto;
   }
   .menu-toggle-btn {
     display: none;
