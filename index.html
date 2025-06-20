@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Room homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav" aria-label="Main navigation">
+        <button
+          id="menuToggle"
+          class="menu-toggle-btn"
+          type="button"
+          aria-label="Menu"
+        >
+          <img src="./images/icon-hamburger.svg" alt="" />
+        </button>
+
+        <div class="header-logo">
+          <img src="./images/logo.svg" alt="room logo" class="logo" />
+        </div>
+
+        <ul class="nav__list links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="slider">
+        <div class="slide active-slide">
+          <div class="slide-picture">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="./images/desktop-image-hero-1.jpg"
+              />
+              <img
+                src="./images/mobile-image-hero-1.jpg"
+                alt="Furniture Slide 1"
+                class="slide-img"
+              />
+            </picture>
+          </div>
+
+          <div class="content container">
+            <h1>Discover innovative ways to decorate</h1>
+            <p>
+              We provide unmatched quality, comfort, and style for property
+              owners across the country. Our experts combine form and function
+              in bringing your vision to life. Create a room in your own style
+              with our collection and make your property a reflection of you and
+              what you love.
+            </p>
+            <a href="#" class="shop-btn"
+              ><span>Shop now</span> <img src="./images/icon-arrow.svg" alt=""
+            /></a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-picture">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="./images/desktop-image-hero-2.jpg"
+              />
+              <img
+                src="./images/mobile-image-hero-2.jpg"
+                alt="Furniture Slide 2"
+                class="slide-img"
+              />
+            </picture>
+          </div>
+
+          <div class="content container">
+            <h1>We are available all across the globe</h1>
+            <p>
+              With stores all over the world, it's easy for you to find
+              furniture for your home or place of business. Locally, we’re in
+              most major cities throughout the country. Find the branch nearest
+              you using our store locator. Any questions? Don't hesitate to
+              contact us today.
+            </p>
+            <a href="#" class="shop-btn"
+              ><span>Shop now</span> <img src="./images/icon-arrow.svg" alt=""
+            /></a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-picture">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="./images/desktop-image-hero-3.jpg"
+              />
+              <img
+                src="./images/mobile-image-hero-3.jpg"
+                alt="Furniture Slide 3"
+                class="slide-img"
+              />
+            </picture>
+          </div>
+
+          <div class="content container">
+            <h1>Manufactured with the best materials</h1>
+            <p>
+              Our modern furniture store provides a high level of quality. Our
+              company has invested in advanced technology to ensure that every
+              product is made as perfect and as consistent as possible. With
+              three decades of experience in this industry, we understand what
+              customers want for their home and office.
+            </p>
+            <a href="#" class="shop-btn"
+              >Shop now<img src="./images/icon-arrow.svg" alt=""
+            /></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="about">
+        <div class="about-img">
+          <img src="images/image-about-dark.jpg" alt="Furniture About" />
+        </div>
+
+        <div class="about-text container">
+          <h2>About our furniture</h2>
+          <p>
+            Our multifunctional collection blends design and function to suit
+            your individual taste. Make each room unique, or pick a cohesive
+            theme that best express your interests and what inspires you. Find
+            the furniture pieces you need, from traditional to contemporary
+            styles or anything in between. Product specialists are available to
+            help you create your dream space.
+          </p>
+        </div>
+        <div class="about-img">
+          <img src="images/image-about-light.jpg" alt="Furniture About" />
+        </div>
+      </section>
+    </main>
+
+    <div class="overlay hidden" role="presentation" aria-hidden="true"></div>
+  </body>
+</html>

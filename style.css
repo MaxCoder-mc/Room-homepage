@@ -1,0 +1,378 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+:where(*, *::before, *::after) {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+:where(img, picture, video, canvas, svg) {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+:where(input, button, textarea, select) {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+:where(p, h1, h2, h3) {
+  overflow-wrap: break-word;
+}
+/* 
+  8. List styles
+*/
+:where(ul, ol) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/*
+  9. Remove links defaults
+*/
+a:is(:link, :visited) {
+  text-decoration: none;
+  color: currentColor;
+}
+
+:root {
+  /* COLORS */
+  --White: #ffffff;
+  --Grey-500: #a1a1a1;
+  --Grey-800: #454545;
+  --Black: #000000;
+
+  --font: "League Spartan", sans-serif;
+  --Preset-1: 600 2.5rem/1 var(--font);
+  --Preset-2: 700 0.875rem/1.4 var(--font);
+  --Preset-3: 500 0.937rem/1 var(--font);
+  --Preset-4: 500 1rem/1.4 var(--font);
+  --Preset-5: 600 1rem/1 var(--font);
+
+  /* Sizes & Spacing */
+  --Nav-Padding: 3rem 1.5rem;
+  --Nav-Arrows-Btn-size: 3.5rem;
+  --Container-Max-Width: 50rem;
+  --Container-Inline-Padding: 2rem;
+  --About-Section-Gap: 3rem;
+}
+body {
+  position: relative;
+  min-height: 100dvh;
+}
+:where(.slide-img, .about-img img) {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+.container {
+  max-width: var(--Container-Max-Width);
+  margin-inline: auto;
+  padding-inline: var(--Container-Inline-Padding);
+  align-self: center;
+}
+
+:where(h1, h2) {
+  color: var(--Black);
+  margin-block-end: 1rem;
+}
+h1 {
+  font: var(--Preset-1);
+  letter-spacing: -2px;
+}
+h2 {
+  font: var(--Preset-2);
+  letter-spacing: 0.364rem;
+  text-transform: uppercase;
+}
+p {
+  font: var(--Preset-4);
+  color: var(--Grey-500);
+  letter-spacing: -0.5px;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--Black);
+  z-index: 3;
+
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+.hidden {
+  opacity: 0;
+  z-index: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* -------------- Header -------------- */
+/* ------------------------------------ */
+.nav {
+  position: absolute;
+  inset: 0 0 auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--Nav-Padding);
+
+  z-index: 10;
+}
+.nav__list {
+  display: none;
+  gap: 2rem;
+  color: var(--Black);
+  font: var(--Preset-5);
+}
+nav.active {
+  background: var(--White);
+}
+.nav.active .nav__list {
+  display: flex;
+}
+.nav.active .header-logo {
+  display: none;
+}
+
+.menu-toggle-btn {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.header-logo {
+  margin-inline: auto;
+}
+
+.nav__list a {
+  position: relative;
+  letter-spacing: -0.7px;
+}
+.links a::before {
+  content: "";
+  width: 1.5rem;
+  height: 2px;
+  background: currentColor;
+
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.links a:hover::before {
+  opacity: 1;
+}
+
+:is(a, button):focus-visible {
+  outline: 2px solid var(--White);
+  outline-offset: 0.25rem; /* 4px */
+}
+/* ---------- Slider Section ---------- */
+/* ------------------------------------ */
+.slider {
+  margin-block-end: 4rem;
+  overflow: hidden;
+}
+.slide {
+  display: none;
+}
+.slide.active-slide {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.slide-picture {
+  position: relative;
+}
+
+.content p {
+  margin-block-end: 2rem;
+}
+
+.nav-arrows {
+  display: flex;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  z-index: 2;
+}
+.nav-arrows_btn {
+  border: none;
+  background-color: var(--Black);
+  width: var(--Nav-Arrows-Btn-size);
+  height: var(--Nav-Arrows-Btn-size);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.3s ease;
+}
+.nav-arrows_btn:hover {
+  background-color: var(--Grey-800);
+}
+.shop-btn {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+
+  font: var(--Preset-3);
+  color: var(--Black);
+  letter-spacing: 0.781rem; /* 12.5px */
+
+  transition: color 0.3s, filter 0.3s;
+}
+.shop-btn:hover {
+  color: var(--Grey-500);
+
+  img {
+    filter: invert(67%) sepia(0%) saturate(0%) hue-rotate(185deg)
+      brightness(97%) contrast(88%);
+  }
+}
+
+/* ---------- About Section ---------- */
+/* ----------------------------------- */
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: var(--About-Section-Gap);
+}
+
+/* --------------- */
+/* Animation -------------- */
+/* ----------------------------------- */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.7s ease forwards;
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.7s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ----------------------------------- */
+/*               Tablet                */
+/* ----------------------------------- */
+@media (min-width: 48rem) {
+  :root {
+    --Preset-1: 600 3rem/0.9 var(--font);
+    --Preset-2: 700 1rem/1.4 var(--font);
+
+    --Nav-Padding: 3.5rem 4rem;
+    --Nav-Arrows-Btn-size: 5rem;
+    --Container-Inline-Padding: 4rem;
+
+    --About-Section-Gap: 4rem;
+  }
+
+  h2 {
+    letter-spacing: 0.4375rem;
+  }
+
+  .content p {
+    margin-block-end: 1.5rem;
+  }
+}
+
+/* ----------------------------------- */
+/*               Desktop                */
+/* ----------------------------------- */
+
+@media (min-width: 75rem) {
+  :root {
+    --Container-Max-Width: 36.5rem;
+    --Container-Inline-Padding: 3rem;
+    --About-Section-Gap: 0;
+  }
+
+  .nav {
+    background: transparent;
+    gap: 3.5rem;
+  }
+  .header-logo {
+    margin-inline: 0;
+  }
+  .nav__list {
+    display: flex;
+    color: var(--White);
+    margin-right: auto;
+  }
+  .menu-toggle-btn {
+    display: none;
+  }
+
+  .slider {
+    margin-block-end: 0;
+  }
+  .slide.active-slide {
+    flex-direction: row;
+    gap: 0;
+  }
+  .nav-arrows {
+    right: calc(var(--Nav-Arrows-Btn-size) * -2);
+  }
+
+  .about {
+    flex-direction: row;
+  }
+
+  :where(.about-img, .about-text, .slide.active-slide picture) {
+    flex: 1;
+  }
+}
