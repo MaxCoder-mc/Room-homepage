@@ -210,7 +210,7 @@ nav.active {
 }
 
 .content p {
-  margin-block-end: 2rem;
+  margin-block-end: clamp(1.5rem, 1.0229rem + 2.0356vw, 2rem);
 }
 
 .nav-arrows {
@@ -327,10 +327,6 @@ nav.active {
   h2 {
     letter-spacing: 0.4375rem;
   }
-
-  .content p {
-    margin-block-end: 1.5rem;
-  }
 }
 
 /* ----------------------------------- */
@@ -354,7 +350,7 @@ nav.active {
   .nav__list {
     display: flex;
     color: var(--White);
-    margin-right: auto;
+    margin-inline-start: auto;
   }
   .menu-toggle-btn {
     display: none;
