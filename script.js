@@ -49,10 +49,10 @@ window.addEventListener("resize", () => {
 const navArrows = document.createElement("div");
 navArrows.className = "nav-arrows";
 navArrows.innerHTML = `
-          <button id="prev" class="nav-arrows_btn">
+          <button type="button" id="prev" class="nav-arrows_btn" aria-label="Previous slide">
             <img src="./images/icon-angle-left.svg" alt="" />
           </button>
-          <button id="next" class="nav-arrows_btn">
+          <button type="button" id="next" class="nav-arrows_btn" aria-label="Next slide">
             <img src="./images/icon-angle-right.svg" alt="" />
           </button>
       `;
